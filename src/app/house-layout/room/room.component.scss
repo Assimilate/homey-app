@@ -1,0 +1,39 @@
+.room {
+  border: 1px dashed black;
+  margin: 0.05rem;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.room:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.room:active {
+  transform: translateY(0px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+  .room {
+    border: 1px dashed black;
+    margin: 0.05rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .room:active {
+    transform: translateY(3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+}

@@ -1,0 +1,48 @@
+.route-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+.house-layout-container {
+  display: flex;
+  height: 60%;
+  width: 25%;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.room {
+  margin: 0.05rem;
+  height: 33%;
+  width: 50%;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 480px) {
+  .route-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .house-layout-container {
+    display: flex;
+    height: 65%;
+    width: 60%;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  .room {
+    margin: 0.05rem;
+    height: 32.5%;
+    width: 50%;
+  }
+}
