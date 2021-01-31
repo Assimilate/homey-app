@@ -18,6 +18,14 @@ This project should run together with [Homey-API](https://github.com/Assimilate/
 
 - The endpoint is /houses/:id/data instead of /homes/:id/data
 
-## Development server
+## How to run
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Always run the server before starting; see [Homey-API](https://github.com/Assimilate/homey-api)
+
+1. Install the angular cli using `npm install -g @angular/cli`.
+
+2. Pull this repository to a folder on your machine.
+
+3. Navigate to the folder where the repository resides and run `npm install`.
+
+4. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
