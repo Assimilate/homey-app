@@ -1,9 +1,17 @@
-<div class="route-container center">
+<div class="route-container">
   <div class="house-layout-container">
-    <app-room
-      class="room"
-      *ngFor="let room of houseLayout"
-      [room]="room"
-    ></app-room>
+    <div *ngIf="houseLayout" class="row">
+      <div class="column" *ngFor="let room of houseLayout.rooms">
+        <app-room (clicked)="stopAPICalls()" [room]="room"></app-room>
+      </div>
+    </div>
+
+    <div *ngIf="!houseLayout" class="spinner">
+      <mat-progress-spinner
+        style="margin: 0 auto"
+        [mode]="mode"
+        diameter="40"
+      ></mat-progress-spinner>
+    </div>
   </div>
 </div>

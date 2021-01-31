@@ -1,0 +1,25 @@
+.navbar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
+  height: 67.5px;
+}
+
+.navbar__item-list {
+  display: flex;
+  list-style: none;
+}
+
+.navbar__item {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__item a {
+  text-decoration: none;
+  color: rgb(58, 58, 58);
+}

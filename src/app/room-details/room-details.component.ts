@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Room } from '../interfaces/room.interface';
 
 interface Measurement {
-  temperature: number;
-  timestamp: Date | string;
+  temperature: string;
 }
 
 @Component({
@@ -12,43 +11,15 @@ interface Measurement {
   templateUrl: './room-details.component.html',
   styleUrls: ['./room-details.component.scss'],
 })
-export class RoomDetailsComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
-  name!: string;
-  measurements: Measurement[] = [];
-  shownMeasurements: Measurement[] = [];
-  maxMeasurementsShown: number = 5;
-  retrieved: boolean = false;
-  timer!: ReturnType<typeof setInterval>;
-  ngOnInit(): void {
+export class RoomDetailsComponent {
+  constructor(private route: ActivatedRoute, private router: Router) {
     this.name = this.route.snapshot.params.name;
-    this.startAPICalls();
+
+    const navigation = this.router.getCurrentNavigation();
+    const state = navigation?.extras.state as { room: Room };
+    this.temperature = state.room.temperature;
   }
-  startAPICalls() {
-    this.timer = setInterval(() => {
-      const temperature: number = Math.random() * 40;
-      const timestamp: Date = new Date();
-      const timestampToShow =
-        timestamp.getHours() +
-        ':' +
-        timestamp.getMinutes() +
-        ':' +
-        timestamp.getSeconds();
-      const measurement: Measurement = {
-        temperature: temperature,
-        timestamp: timestampToShow,
-      };
-      this.addToMeasurements(measurement);
-    }, 3000);
-  }
-  stopAPICalls() {
-    clearInterval(this.timer);
-  }
-  addToMeasurements(measurement: Measurement) {
-    if (!this.retrieved) this.retrieved = true;
-    this.measurements.unshift(measurement);
-    this.shownMeasurements.unshift(measurement);
-    if (this.shownMeasurements.length > this.maxMeasurementsShown)
-      this.shownMeasurements.pop();
-  }
+
+  name!: string;
+  temperature!: string;
 }
