@@ -8,7 +8,7 @@ This project should run together with [Homey-API](https://github.com/Assimilate/
 
 - Unit tests
 
-- JWT Authentication.
+- JWT Authentication
 
 - List of five latest temperature measurements in the room, displayed in the room-details component
 
